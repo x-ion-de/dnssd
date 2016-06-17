@@ -81,6 +81,13 @@ or set in your code to set maximum timeout to 20 seconds:
 DNSSD::Config.set max_timeout: 20
 ````
 
+if needed different timouts for browse and resolve can be set via DNSSD_MAX_RESOLVE_TIMEOUT and DNSSD_MAX_BROWSE_TIMEOUT
+or:
+
+````
+DNSSD::Config.set max_resolve_timeout: 10, max_browse_timeout: 15
+````
+
 ## LICENSE:
 
 Copyright (c) 2004 Chad Fowler, Charles Mills, Rich Kilmer
