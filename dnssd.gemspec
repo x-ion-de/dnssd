@@ -8,5 +8,6 @@ Gem::Specification.new do |s|
   s.description = 'https://github.com/x-ion-de/dnssd/README.md'
   s.required_rubygems_version = '>= 1.3.6'
   s.files = Dir['lib     .rb'] + Dir['ext     .c']
+  gem.require_paths = ['lib']
   s.extra_rdoc_files = ['README.md']
 end
