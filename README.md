@@ -70,7 +70,7 @@ the Ruby dnssd extension will look like this:
      --with-dnssd-lib=c:/progra~2/bonjou~1/lib/win32
 ````
 
-== CONFIGURATION:
+## CONFIGURATION:
 
 to possibilities to overwrite current behaviour, that never times out on browse and resolve:
 
@@ -81,7 +81,7 @@ or set in your code to set maximum timeout to 20 seconds:
 DNSSD::Config.set max_timeout: 20
 ````
 
-== LICENSE:
+## LICENSE:
 
 Copyright (c) 2004 Chad Fowler, Charles Mills, Rich Kilmer
 
