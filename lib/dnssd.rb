@@ -10,6 +10,22 @@
 
 module DNSSD
 
+  class Config
+
+    @@config = {max_timeout: ENV['DNSD_MAX_TIMEOUT'] }
+
+    @@config.keys.each do |key|
+      define_method key do
+        @@config[key]
+      end
+    end
+
+    def self.set(config)
+      @@config.merge! config
+    end
+
+  end
+
   ##
   # The version of DNSSD you're using.
 
@@ -67,7 +83,7 @@ module DNSSD
 
   def self.browse type, domain = nil, flags = 0, interface = DNSSD::InterfaceAny
     service = DNSSD::Service.browse type, domain, flags, interface
-    service.async_each { |r| yield r }
+    service.async_each(Config.max_timeout) { |r| yield r }
     service
   end
 
@@ -76,7 +92,7 @@ module DNSSD
 
   def self.browse! type, domain = nil, flags = 0, interface = DNSSD::InterfaceAny
     service = DNSSD::Service.browse type, domain, flags, interface
-    service.each { |r| yield r }
+    service.each(Config.max_timeout) { |r| yield r }
   ensure
     service.stop
   end
@@ -133,7 +149,7 @@ module DNSSD
 
   def self.resolve(*args)
     service = DNSSD::Service.resolve(*args)
-    service.async_each { |r| yield r }
+    service.async_each(Config.max_timeout) { |r| yield r }
     service
   end
 
@@ -142,7 +158,7 @@ module DNSSD
 
   def self.resolve!(*args)
     service = DNSSD::Service.resolve(*args)
-    service.each { |r| yield r }
+    service.each(Config.max_timeout) { |r| yield r }
   ensure
     service.stop if service
   end
