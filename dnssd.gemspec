@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.summary     = 'added some small extensions to original gem: https://github.com/tenderlove/dnssd'
   s.description = 'https://github.com/x-ion-de/dnssd/README.md'
   s.required_rubygems_version = '>= 1.3.6'
-  s.files = Dir['lib     .rb'] + Dir['ext     .c']
-  s.require_paths = ['lib']
+  s.require_paths = ['lib/dnssd']
+  s.files = `git ls-files`.split("\n").reject { |name| name.include?('sample') }
   s.extra_rdoc_files = ['README.md']
 end
