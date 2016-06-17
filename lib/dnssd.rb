@@ -12,7 +12,7 @@ module DNSSD
 
   class Config
 
-    @@config = {max_timeout: ENV['DNSD_MAX_TIMEOUT'] }
+    @@config = {max_timeout: (ENV['DNSSD_MAX_TIMEOUT'] || :never) }
 
     @@config.keys.each do |key|
       define_method key do
