@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.summary     = 'added some small extensions to original gem: https://github.com/tenderlove/dnssd'
   s.description = 'https://github.com/x-ion-de/dnssd/README.md'
   s.required_rubygems_version = '>= 1.3.6'
-  s.files = ['lib/dnssd.rb']
+  s.files = Dir.glob(File.expand('../lib/**/*.rb', __FILE__))
   s.extra_rdoc_files = ['README.md']
 end
